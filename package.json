@@ -1,0 +1,41 @@
+{
+  "name": "taskkill",
+  "version": "0.0.0",
+  "description": "Wrapper for the Windows `taskkill` command. Ends one or more tasks or processes.",
+  "license": "MIT",
+  "repository": "sindresorhus/taskkill",
+  "author": {
+    "name": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "sindresorhus.com"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "taskkill",
+    "task",
+    "kill",
+    "terminate",
+    "windows",
+    "win",
+    "win32",
+    "pid",
+    "id",
+    "process",
+    "processes",
+    "services"
+  ],
+  "dependencies": {
+    "arrify": "^1.0.0"
+  },
+  "devDependencies": {
+    "ava": "0.0.4"
+  }
+}
