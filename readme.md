@@ -84,7 +84,7 @@ Terminate all child processes along with the parent process, commonly known as a
 
 ## Related
 
-- [tasklist](https://github.com/sindresorhus/tasklist) - Wrapper for the Windows `tasklist` command.
+- [tasklist](https://github.com/sindresorhus/tasklist) - Wrapper for the Windows `tasklist` command
 
 
 ## License
