@@ -85,6 +85,7 @@ Terminate all child processes along with the parent process, commonly known as a
 ## Related
 
 - [tasklist](https://github.com/sindresorhus/tasklist) - Wrapper for the Windows `tasklist` command
+- [fkill](https://github.com/sindresorhus/fkill) - Force kill processes, cross-platform
 
 
 ## License
