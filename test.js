@@ -4,13 +4,11 @@ var test = require('ava');
 var taskkill = require('./');
 
 test(function (t) {
-	t.plan(2);
+	t.plan(1);
 
 	var pid = childProcess.spawn(process.execPath).pid;
 
-	taskkill(pid, {force: true}, function (err) {
-		t.assert(!err, err);
-
+	taskkill(pid, {force: true}).then(function () {
 		// check if the process exists
 		try {
 			process.kill(pid);

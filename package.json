@@ -33,7 +33,9 @@
     "services"
   ],
   "dependencies": {
-    "arrify": "^1.0.0"
+    "arrify": "^1.0.0",
+    "execa": "^0.1.1",
+    "pinkie-promise": "^2.0.0"
   },
   "devDependencies": {
     "ava": "0.0.4"
