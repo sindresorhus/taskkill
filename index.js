@@ -5,12 +5,13 @@ var Promise = require('pinkie-promise');
 
 module.exports = function (input, opts) {
 	opts = opts || {};
+	input = arrify(input);
 
 	if (process.platform !== 'win32') {
 		return Promise.reject(new Error('Windows only'));
 	}
 
-	if (input == null) {
+	if (input.length === 0) {
 		return Promise.reject(new Error('PID or image name required'));
 	}
 
@@ -32,7 +33,7 @@ module.exports = function (input, opts) {
 		args.push('/t');
 	}
 
-	arrify(input).forEach(function (el) {
+	input.forEach(function (el) {
 		args.push(typeof el === 'number' ? '/pid' : '/im', el);
 	});
 

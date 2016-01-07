@@ -1,20 +1,11 @@
-'use strict';
-var childProcess = require('child_process');
-var test = require('ava');
-var taskkill = require('./');
+import childProcess from 'child_process';
+import test from 'ava';
+import m from './';
 
-test(function (t) {
-	t.plan(1);
+test(async t => {
+	const pid = childProcess.spawn(process.execPath).pid;
+	await m(pid, {force: true});
 
-	var pid = childProcess.spawn(process.execPath).pid;
-
-	taskkill(pid, {force: true}).then(function () {
-		// check if the process exists
-		try {
-			process.kill(pid);
-			t.assert(false);
-		} catch (err) {
-			t.assert(true);
-		}
-	});
+	// check if the process exists
+	t.throws(() => process.kill(pid));
 });
