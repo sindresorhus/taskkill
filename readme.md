@@ -13,14 +13,12 @@ $ npm install --save taskkill
 ## Usage
 
 ```js
-var taskkill = require('taskkill');
+const taskkill = require('taskkill');
 
-var input = [4970, 4512];
+const input = [4970, 4512];
 
-taskkill(input, function (err) {
-	if (!err) {
-		console.log('Successfully terminated ' + input.join(', '));
-	}
+taskkill(input).then(() => {
+	console.log(`Successfully terminated ${input.join(', ')}`);
 });
 ```
 
@@ -29,7 +27,9 @@ taskkill(input, function (err) {
 
 See the [`taskkill` docs](https://technet.microsoft.com/en-us/library/bb491009.aspx) for more.
 
-### taskkill(input, [options], [callback])
+### taskkill(input, [options])
+
+Returns a promise.
 
 #### input
 
@@ -78,8 +78,6 @@ Forcefully terminate processes. Ignored for remote processes as all remote proce
 Type: `boolean`
 
 Terminate all child processes along with the parent process, commonly known as a tree kill.
-
-#### callback(error)
 
 
 ## Related

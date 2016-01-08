@@ -1,22 +1,19 @@
 'use strict';
-var childProcess = require('child_process');
 var arrify = require('arrify');
+var execa = require('execa');
+var Promise = require('pinkie-promise');
 
-module.exports = function (input, opts, cb) {
+module.exports = function (input, opts) {
+	opts = opts || {};
+	input = arrify(input);
+
 	if (process.platform !== 'win32') {
-		throw new Error('Windows only');
+		return Promise.reject(new Error('Windows only'));
 	}
 
-	if (input == null) {
-		throw new Error('PID or image name required');
+	if (input.length === 0) {
+		return Promise.reject(new Error('PID or image name required'));
 	}
-
-	if (typeof opts !== 'object') {
-		cb = opts;
-		opts = {};
-	}
-
-	cb = cb || function () {}
 
 	var args = [];
 
@@ -36,11 +33,9 @@ module.exports = function (input, opts, cb) {
 		args.push('/t');
 	}
 
-	arrify(input).forEach(function (el) {
+	input.forEach(function (el) {
 		args.push(typeof el === 'number' ? '/pid' : '/im', el);
 	});
 
-	childProcess.execFile('taskkill', args, function (err) {
-		cb(err);
-	});
+	return execa('taskkill', args);
 };
