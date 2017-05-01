@@ -86,6 +86,12 @@ Terminate all child processes along with the parent process, commonly known as a
 - [fkill](https://github.com/sindresorhus/fkill) - Force kill processes, cross-platform
 
 
+## Maintainers
+
+- [Sindre Sorhus](https://sindresorhus.com)
+- [Mark Tiedemann](https://marksweb.site)
+
+
 ## License
 
-MIT © [Sindre Sorhus](http://sindresorhus.com)
+MIT
