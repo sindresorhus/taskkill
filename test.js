@@ -1,15 +1,15 @@
 import childProcess from 'child_process';
 import test from 'ava';
-import m from '.';
+import taskkill from '.';
 
 test('kills a process', async t => {
 	const {pid} = childProcess.spawn(process.execPath);
-	await m(pid, {force: true});
+	await taskkill(pid, {force: true});
 
 	// Check if the process exists
 	t.throws(() => process.kill(pid));
 });
 
 test('throws on not found', async t => {
-	await t.throwsAsync(m('not-running.exe'));
+	await t.throwsAsync(taskkill('not-running.exe'));
 });

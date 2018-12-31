@@ -6,7 +6,7 @@
 ## Install
 
 ```
-$ npm install --save taskkill
+$ npm install taskkill
 ```
 
 
@@ -15,11 +15,9 @@ $ npm install --save taskkill
 ```js
 const taskkill = require('taskkill');
 
-const input = [4970, 4512];
-
-taskkill(input).then(() => {
-	console.log(`Successfully terminated ${input.join(', ')}`);
-});
+(async () => {
+	await taskkill([4970, 4512]);
+})();
 ```
 
 
@@ -29,11 +27,11 @@ See the [`taskkill` docs](https://technet.microsoft.com/en-us/library/bb491009.a
 
 ### taskkill(input, [options])
 
-Returns a promise.
+Returns a `Promise`.
 
 #### input
 
-Type: `string`, `array`
+Type: `string` `string[]`
 
 One or more process IDs or image names, but not mixed.
 

@@ -1,43 +1,43 @@
 {
-  "name": "taskkill",
-  "version": "2.0.0",
-  "description": "Wrapper for the Windows `taskkill` command. Ends one or more tasks or processes.",
-  "license": "MIT",
-  "repository": "sindresorhus/taskkill",
-  "author": {
-    "name": "Sindre Sorhus",
-    "email": "sindresorhus@gmail.com",
-    "url": "sindresorhus.com"
-  },
-  "engines": {
-    "node": ">=4"
-  },
-  "scripts": {
-    "test": "xo && ava"
-  },
-  "files": [
-    "index.js"
-  ],
-  "keywords": [
-    "taskkill",
-    "task",
-    "kill",
-    "terminate",
-    "windows",
-    "win",
-    "win32",
-    "pid",
-    "id",
-    "process",
-    "processes",
-    "services"
-  ],
-  "dependencies": {
-    "arrify": "^1.0.0",
-    "execa": "^0.1.1"
-  },
-  "devDependencies": {
-    "ava": "*",
-    "xo": "*"
-  }
+	"name": "taskkill",
+	"version": "2.0.0",
+	"description": "Wrapper for the Windows `taskkill` command. Ends one or more tasks or processes.",
+	"license": "MIT",
+	"repository": "sindresorhus/taskkill",
+	"author": {
+		"name": "Sindre Sorhus",
+		"email": "sindresorhus@gmail.com",
+		"url": "sindresorhus.com"
+	},
+	"engines": {
+		"node": ">=8"
+	},
+	"scripts": {
+		"test": "xo && ava"
+	},
+	"files": [
+		"index.js"
+	],
+	"keywords": [
+		"taskkill",
+		"task",
+		"kill",
+		"terminate",
+		"windows",
+		"win",
+		"win32",
+		"pid",
+		"id",
+		"process",
+		"processes",
+		"services"
+	],
+	"dependencies": {
+		"arrify": "^1.0.0",
+		"execa": "^1.0.0"
+	},
+	"devDependencies": {
+		"ava": "^1.0.1",
+		"xo": "^0.23.0"
+	}
 }
