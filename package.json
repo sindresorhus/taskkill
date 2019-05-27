@@ -33,11 +33,11 @@
 		"services"
 	],
 	"dependencies": {
-		"arrify": "^1.0.0",
+		"arrify": "^2.0.1",
 		"execa": "^1.0.0"
 	},
 	"devDependencies": {
-		"ava": "^1.0.1",
-		"xo": "^0.23.0"
+		"ava": "^1.4.1",
+		"xo": "^0.24.0"
 	}
 }

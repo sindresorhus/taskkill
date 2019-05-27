@@ -7,7 +7,9 @@ test('kills a process', async t => {
 	await taskkill(pid, {force: true});
 
 	// Check if the process exists
-	t.throws(() => process.kill(pid));
+	t.throws(() => {
+		process.kill(pid);
+	});
 });
 
 test('throws on not found', async t => {

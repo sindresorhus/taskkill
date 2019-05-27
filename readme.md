@@ -88,8 +88,3 @@ Terminate all child processes along with the parent process, commonly known as a
 
 - [Sindre Sorhus](https://sindresorhus.com)
 - [Mark Tiedemann](https://marksweb.site)
-
-
-## License
-
-MIT
