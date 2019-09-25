@@ -35,5 +35,5 @@ module.exports = async (input, options = {}) => {
 		args.push(typeof x === 'number' ? '/pid' : '/im', x);
 	}
 
-	return execa('taskkill', args);
+	return execa('taskkill', args, {windowsHide: true});
 };
