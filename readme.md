@@ -1,4 +1,4 @@
-# taskkill [![Build Status](https://travis-ci.org/sindresorhus/taskkill.svg?branch=master)](https://travis-ci.org/sindresorhus/taskkill)
+# taskkill
 
 > Wrapper for the Windows [`taskkill`](https://technet.microsoft.com/en-us/library/bb491009.aspx) command. Ends one or more tasks or processes.
 
