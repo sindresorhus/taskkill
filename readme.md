@@ -31,7 +31,7 @@ Returns a `Promise`.
 
 #### input
 
-Type: `string | string[]`
+Type: `string | number | string[] | number[]`
 
 One or more process IDs or image names, but not mixed.
 
