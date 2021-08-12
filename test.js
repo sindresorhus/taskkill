@@ -1,6 +1,7 @@
-import childProcess from 'child_process';
+import childProcess from 'node:child_process';
+import process from 'node:process';
 import test from 'ava';
-import taskkill from '.';
+import taskkill from './index.js';
 
 test('kills a process', async t => {
 	const {pid} = childProcess.spawn(process.execPath);

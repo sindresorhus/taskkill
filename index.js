@@ -1,39 +1,39 @@
-'use strict';
-const arrify = require('arrify');
-const execa = require('execa');
+import process from 'node:process';
+import arrify from 'arrify';
+import execa from 'execa';
 
-module.exports = async (input, options = {}) => {
-	input = arrify(input);
-
+export default async function taskkill(input, options = {}) {
 	if (process.platform !== 'win32') {
 		throw new Error('Windows only');
 	}
+
+	input = arrify(input);
 
 	if (input.length === 0) {
 		throw new Error('PID or image name required');
 	}
 
-	const args = [];
+	const arguments_ = [];
 
 	if (options.system && options.username && options.password) {
-		args.push('/s', options.system, '/u', options.username, '/p', options.password);
+		arguments_.push('/s', options.system, '/u', options.username, '/p', options.password);
 	}
 
 	if (options.filter) {
-		args.push('/fi', options.filter);
+		arguments_.push('/fi', options.filter);
 	}
 
 	if (options.force) {
-		args.push('/f');
+		arguments_.push('/f');
 	}
 
 	if (options.tree) {
-		args.push('/t');
+		arguments_.push('/t');
 	}
 
-	for (const x of input) {
-		args.push(typeof x === 'number' ? '/pid' : '/im', x);
+	for (const element of input) {
+		arguments_.push(typeof element === 'number' ? '/pid' : '/im', element);
 	}
 
-	return execa('taskkill', args);
-};
+	await execa('taskkill', arguments_);
+}

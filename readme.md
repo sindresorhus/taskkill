@@ -2,30 +2,25 @@
 
 > Wrapper for the Windows [`taskkill`](https://technet.microsoft.com/en-us/library/bb491009.aspx) command. Ends one or more tasks or processes.
 
-
 ## Install
 
 ```
 $ npm install taskkill
 ```
 
-
 ## Usage
 
 ```js
-const taskkill = require('taskkill');
+import taskkill from 'taskkill';
 
-(async () => {
-	await taskkill([4970, 4512]);
-})();
+await taskkill([4970, 4512]);
 ```
-
 
 ## API
 
 See the [`taskkill` docs](https://technet.microsoft.com/en-us/library/bb491009.aspx) for more.
 
-### taskkill(input, [options])
+### taskkill(input, options?)
 
 Returns a `Promise`.
 
@@ -49,7 +44,9 @@ Name or IP address of a remote computer (do not use backslashes). The default is
 
 Type: `string`
 
-User specified by User or Domain\User. The default is the permissions of the current logged on user on the computer issuing the command.
+A user specified by `User` or `Domain\User`.
+
+The default is the permissions of the current logged on user on the computer issuing the command.
 
 ##### password
 
@@ -77,12 +74,10 @@ Type: `boolean`
 
 Terminate all child processes along with the parent process, commonly known as a tree kill.
 
-
 ## Related
 
 - [tasklist](https://github.com/sindresorhus/tasklist) - Wrapper for the Windows `tasklist` command
 - [fkill](https://github.com/sindresorhus/fkill) - Force kill processes, cross-platform
-
 
 ## Maintainers
 
