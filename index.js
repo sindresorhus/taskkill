@@ -1,8 +1,8 @@
 import process from 'node:process';
 import arrify from 'arrify';
-import execa from 'execa';
+import {execa, execaSync} from 'execa';
 
-export default async function taskkill(input, options = {}) {
+function parseArgs(input, options){
 	if (process.platform !== 'win32') {
 		throw new Error('Windows only');
 	}
@@ -35,5 +35,15 @@ export default async function taskkill(input, options = {}) {
 		arguments_.push(typeof element === 'number' ? '/pid' : '/im', element);
 	}
 
-	await execa('taskkill', arguments_);
+	return arguments_;
 }
+
+export function taskkillSync(input, options = {}){
+	return execaSync('taskkill', parseArgs(input, options));
+}
+
+export async function taskkill(input, options = {}) {
+	await execa('taskkill', parseArgs(input, options));
+}
+
+export default taskkill;
