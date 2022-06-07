@@ -2,7 +2,7 @@ import process from 'node:process';
 import arrify from 'arrify';
 import {execa, execaSync} from 'execa';
 
-function parseArgs(input, options){
+function parseArgs(input, options) {
 	if (process.platform !== 'win32') {
 		throw new Error('Windows only');
 	}
@@ -38,12 +38,12 @@ function parseArgs(input, options){
 	return arguments_;
 }
 
-export function taskkillSync(input, options = {}){
+export function taskkillSync(input, options = {}) {
 	return execaSync('taskkill', parseArgs(input, options));
 }
 
 export async function taskkill(input, options = {}) {
-	await execa('taskkill', parseArgs(input, options));
+	return execa('taskkill', parseArgs(input, options));
 }
 
 export default taskkill;
