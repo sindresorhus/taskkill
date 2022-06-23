@@ -39,11 +39,11 @@ function parseArgs(input, options) {
 }
 
 export function taskkillSync(input, options = {}) {
-	return execaSync('taskkill', parseArgs(input, options));
+	execaSync('taskkill', parseArgs(input, options));
 }
 
 export async function taskkill(input, options = {}) {
-	return execa('taskkill', parseArgs(input, options));
+	execa('taskkill', parseArgs(input, options));
 }
 
 export default taskkill;
