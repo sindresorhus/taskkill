@@ -3,7 +3,7 @@ import process from 'node:process';
 import test from 'ava';
 import {taskkill, taskkillSync} from './index.js';
 
-test('kills a process', async t => {
+test('async - kills a process', async t => {
 	const {pid} = childProcess.spawn(process.execPath);
 	await taskkill(pid, {force: true});
 
@@ -13,11 +13,11 @@ test('kills a process', async t => {
 	});
 });
 
-test('throws on not found', async t => {
+test('async - throws on not found', async t => {
 	await t.throwsAsync(taskkill('not-running.exe'));
 });
 
-test('kills a process sync', t => {
+test('sync - kills a process', t => {
 	const {pid} = childProcess.spawn(process.execPath);
 	taskkillSync(pid, {force: true});
 
@@ -27,6 +27,8 @@ test('kills a process sync', t => {
 	});
 });
 
-test('throws on sync not found', t => {
-	t.throws(() => taskkillSync('not-running.exe'));
+test('sync - throws on not found', t => {
+	t.throws(() => {
+		taskkillSync('not-running.exe');
+	});
 });

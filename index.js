@@ -1,5 +1,4 @@
 import process from 'node:process';
-import arrify from 'arrify';
 import {execa, execaSync} from 'execa';
 
 function parseArgs(input, options) {
@@ -7,7 +6,7 @@ function parseArgs(input, options) {
 		throw new Error('Windows only');
 	}
 
-	input = arrify(input);
+	input = [input].flat();
 
 	if (input.length === 0) {
 		throw new Error('PID or image name required');
@@ -38,12 +37,10 @@ function parseArgs(input, options) {
 	return arguments_;
 }
 
-export function taskkillSync(input, options = {}) {
-	execaSync('taskkill', parseArgs(input, options));
-}
-
 export async function taskkill(input, options = {}) {
 	await execa('taskkill', parseArgs(input, options));
 }
 
-export default taskkill;
+export function taskkillSync(input, options = {}) {
+	execaSync('taskkill', parseArgs(input, options));
+}

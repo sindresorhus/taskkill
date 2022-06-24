@@ -4,32 +4,31 @@
 
 ## Install
 
-```
-$ npm install taskkill
+```sh
+npm install taskkill
 ```
 
 ## Usage
 
 ```js
-import {taskkill, taskkillSync} from 'taskkill';
+import {taskkill} from 'taskkill';
 
-await taskkill([pid, pid2]); //Async usage
-taskkillSync([pid, pid2]); //Sync usage
+await taskkill([pid, pid2]);
 ```
 
 ## API
 
 See the [`taskkill` docs](https://technet.microsoft.com/en-us/library/bb491009.aspx) for more.
 
-The package export two methods **with same arguments usage**:
-
 ### taskkill(input, options?)
 
-Default export and async execution. Returns a `Promise`.
+Kill asynchronously.
+
+Returns a `Promise`.
 
 ### taskkillSync(input, options?)
 
-Sync execution. Returns or throws.
+Kill synchronously.
 
 ### Arguments
 
@@ -87,8 +86,3 @@ Terminate all child processes along with the parent process, commonly known as a
 
 - [tasklist](https://github.com/sindresorhus/tasklist) - Wrapper for the Windows `tasklist` command
 - [fkill](https://github.com/sindresorhus/fkill) - Force kill processes, cross-platform
-
-## Maintainers
-
-- [Sindre Sorhus](https://sindresorhus.com)
-- [Mark Tiedemann](https://marksweb.site)
