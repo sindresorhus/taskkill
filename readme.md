@@ -11,18 +11,27 @@ $ npm install taskkill
 ## Usage
 
 ```js
-import taskkill from 'taskkill';
+import {taskkill, taskkillSync} from 'taskkill';
 
-await taskkill([4970, 4512]);
+await taskkill([pid, pid2]); //Async usage
+taskkillSync([pid, pid2]); //Sync usage
 ```
 
 ## API
 
 See the [`taskkill` docs](https://technet.microsoft.com/en-us/library/bb491009.aspx) for more.
 
+The package export two methods **with same arguments usage**:
+
 ### taskkill(input, options?)
 
-Returns a `Promise`.
+Default export and async execution. Returns a `Promise`.
+
+### taskkillSync(input, options?)
+
+Sync execution. Returns or throws.
+
+### Arguments
 
 #### input
 
