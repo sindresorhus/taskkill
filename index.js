@@ -43,7 +43,7 @@ export function taskkillSync(input, options = {}) {
 }
 
 export async function taskkill(input, options = {}) {
-	execa('taskkill', parseArgs(input, options));
+	await execa('taskkill', parseArgs(input, options));
 }
 
 export default taskkill;
